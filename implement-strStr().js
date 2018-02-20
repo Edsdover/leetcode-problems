@@ -18,35 +18,45 @@ console.log(strStr("aaa", "aa"),"Expected:", 0);
 console.log(strStr("aaa", "aaaa"),"Expected:", -1);
 console.log(strStr("mississippi", "issip"),"Expected:", 4);
 console.log(strStr("mississippi", "issipi"),"Expected:", -1);
+console.log(strStr("mississippi", "pi"),"Expected:", 9);
 
 function strStr(haystack, needle) {
-    haystackArray = haystack.split('');
-    needleArray = needle.split('');
-    returnValue = -1;
-    randomArray = [];
-    haystackArray.some(function(letter, index){
-       if (letter === needleArray[0]){
-           if (needleArray.length === 1) {
-               randomArray.push(index);
-               returnValue = randomArray[0];
-           }
-           for (i = 1; i < needleArray.length; i++) {
-               if (haystackArray[index + i] === needleArray[i]){
-                   randomArray.push(index);
-               } else if (haystackArray[index + i] !== needleArray[i]){
-                   randomArray.push(-1);
+    let haystackArray = haystack.split('');
+    let needleArray = needle.split('');
+    let returnValue = 0;
+    let accumValue = 0;
+    if (needle === "") {
+        return returnValue = 0;
+    } else if (haystack === needle) {
+        return returnValue = 0;
+    } else if (needle.length > haystack.length) {
+        return returnValue = -1;
+    }
+    findFirstIndex();
+    function findFirstIndex(sliceIndex) {
+        let newHaystackArray = haystackArray;
+        if (sliceIndex) {
+            newHaystackArray = haystackArray.slice(sliceIndex);
+        } else {
+            newHaystackArray = haystackArray;
+        }
+        if (newHaystackArray.length < needleArray.length) {
+            accumValue = 0;
+            return returnValue = -1;
+        }
+        returnValue = newHaystackArray.indexOf(needleArray[0]);
+        if (returnValue === -1) {
+            return returnValue;
+        }
+        for (i = 0; i < needleArray.length; i++) {
+               if (newHaystackArray[returnValue + i] === needleArray[i]){
+                    
+               } else {
+                   accumValue += returnValue + 1;
+                   findFirstIndex(accumValue);
                    break;
                }
-              returnValue = randomArray[0];
            }
-       }
-    });
-    if (needle === "") {
-        returnValue = 0;
-    } else if (haystack === needle) {
-        returnValue = 0;
-    } else if (needle.length > haystack.length) {
-        returnValue = -1;
     }
-    return returnValue;
+    return returnValue + accumValue;
 };

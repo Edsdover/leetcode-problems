@@ -4,6 +4,8 @@ https://leetcode.com/problems/implement-strstr/description/
 
 https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
+https://leetcode.com/problems/merge-sorted-array/description/
+
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 
 https://leetcode.com/problems/reverse-integer/description/

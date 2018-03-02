@@ -4,6 +4,8 @@ https://leetcode.com/problems/implement-strstr/description/
 
 https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
+https://leetcode.com/problems/max-consecutive-ones/description/
+
 https://leetcode.com/problems/merge-sorted-array/description/
 
 https://leetcode.com/problems/nim-game/description/
